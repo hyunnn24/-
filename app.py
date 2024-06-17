@@ -29,12 +29,12 @@ def call_openai_api(query, context, api_key):
             {"role": "user", "content": f"Query: {query}"}
         ]
     
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-4-turbo",
         messages=messages,
         max_tokens=1000
     )
-    return response.choices[0].message['content']
+    return response.choices[0].message.content
 
 # Streamlit UI
 st.title('LoL Counter Pick Recommender')
