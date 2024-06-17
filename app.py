@@ -2,6 +2,7 @@ import streamlit as st
 import openai
 import requests
 from bs4 import BeautifulSoup
+from openai import OpenAI
 
 api_key = st.text_input('Enter your OpenAI API key:', type='password')
 client = OpenAI(api_key)
