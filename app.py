@@ -45,8 +45,8 @@ if st.button('Get Counter Picks'):
             # API 응답 출력
             st.write(f"Counter picks for {enemy_champion1} and {enemy_champion2}:")
             st.write(response.choices[0].message.content)
-        except openai.error.OpenAIError as e:
-            st.error(f"OpenAI API error: {e}")
+        except:
+            st.error("OpenAI API error")
     else:
         st.error('Please enter your OpenAI API key.')
 
