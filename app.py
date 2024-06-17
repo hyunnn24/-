@@ -20,7 +20,8 @@ def get_text_from_github(url):
     text = soup.get_text()
     
     return text
-
+    with open(testdata,'w') as fo:
+        fo.write(text)
 # 테스트용 GitHub URL
 github_url = "https://github.com/hyunnn24/-/blob/main/counter_pick.txt"
 
@@ -29,6 +30,7 @@ try:
     text = get_text_from_github(github_url)
 except requests.exceptions.RequestException as e:
     print(f"Error fetching data: {e}")
+    
 # OpenAI API 호출 함수
 def call_openai_api(query, context, api_key):
     openai.api_key = api_key
