@@ -30,6 +30,10 @@ try:
     text = get_text_from_github(github_url)
 except requests.exceptions.RequestException as e:
     print(f"Error fetching data: {e}")
+
+with open(testdata) as fi:
+  text = fi.read()
+text
     
 # OpenAI API 호출 함수
 def call_openai_api(query, context, api_key):
