@@ -1,4 +1,4 @@
-openai
+openai==1.16.1
 streamlit
 requests
 bs4
