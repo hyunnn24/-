@@ -27,8 +27,8 @@ def run_and_wait(client, assistant, thread):
       break
   return run
 
-api_key = st.text_input('Enter your OpenAI API key:', type='password')
-client = OpenAI(api_key=api_key)
+key = st.text_input('Enter your OpenAI API key:', type='password')
+client = OpenAI(api_key=key)
 
 github_url = "https://github.com/hyunnn24/-/blob/main/counter_pick.txt"
 url = github_url.replace("/blob/", "/raw/")
