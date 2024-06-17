@@ -65,13 +65,16 @@ if enemy_champion1 and enemy_champion2 and key:
     query = f"{enemy_champion1}, {enemy_champion2}"
 
     thread = client.beta.threads.create(
-        messages=[
-            {
-                "role": "user",
-                "content": query,
-                "file_ids": [my_file.id]
-            }
-        ]
+    messages=[
+        {
+        "role": "user",
+        "content": "what is the best counter pick?",
+        # Attach the new file to the message.
+        "attachments": [
+            { "file_id": my_file.id, "tools": [{"type": "retrieval"}] }
+        ],
+        }
+    ]
     )
     
     thread_messages = run_and_wait(client, assistant, thread)
