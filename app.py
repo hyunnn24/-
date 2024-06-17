@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from openai import OpenAI
 
 api_key = st.text_input('Enter your OpenAI API key:', type='password')
-client = OpenAI(api_key)
+client = OpenAI(api_key=api_key)
 
 
 def download_and_save(url, filename):
