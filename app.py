@@ -38,7 +38,7 @@ if st.button('Get Counter Picks'):
         try:
             response = openai.chat.completions.create(
                 model="gpt-4o",
-                messages=prompt
+                messages=prompt,
                 max_tokens=1000
             )
 
