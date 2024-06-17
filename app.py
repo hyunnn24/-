@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 import requests
-
+'''
 # GitHub 파일 URL
 file_url = "https://raw.githubusercontent.com/hyunnn24/-/main/counter_pick.txt"
 
@@ -14,18 +14,18 @@ def load_counterpick_data(file_url):
 # 간단한 문서 검색 함수
 def search_documents(query, docs):
     return [doc for doc in docs if query.lower() in doc.lower()]
-
+'''
 # OpenAI API 호출 함수
 def call_openai_api(query, context, api_key):
     openai.api_key = api_key
     if context:
         messages = [
-            {"role": "system", "content": "문서만보고 입력된 바텀 챔피언의 카운터알려줘 ."},
+            {"role": "system", "content": "입력된 바텀 챔피언의 카운터알려줘 ."},
             {"role": "user", "content": f"Context: {context}\n\nQuery: {query}"}
         ]
     else:
         messages = [
-            {"role": "system", "content": "문서만보고 입력된 바텀 챔피언의 카운터알려줘 ."},
+            {"role": "system", "content": "입력된 바텀 챔피언의 카운터알려줘 ."},
             {"role": "user", "content": f"Query: {query}"}
         ]
     
@@ -50,7 +50,7 @@ if st.button('Get Counter Picks'):
     elif not enemy_champion1 or not enemy_champion2:
         st.error("두 챔피언 이름을 모두 입력하세요.")
     else:
-        with st.spinner('문서 검색 중...'):
+        '''with st.spinner('문서 검색 중...'):
             # 문서 로딩 및 검색 단계
             try:
                 documents = load_counterpick_data(file_url)
@@ -60,7 +60,7 @@ if st.button('Get Counter Picks'):
 
             query = f"{enemy_champion1}, {enemy_champion2}"
             relevant_docs = search_documents(query, documents)
-            context = " ".join(relevant_docs)
+            context = " ".join(relevant_docs)'''
 
         with st.spinner('OpenAI API 호출 중...'):
             # 텍스트 생성 단계
