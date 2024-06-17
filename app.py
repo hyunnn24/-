@@ -47,7 +47,7 @@ download_and_save(url, filename)
 with open(filename) as fi:
   text = fi.read()
 
-#st.write(text) #TEST 
+st.write(text) #TEST 
 
 my_file = client.files.create(
     file = open(filename,'rb'),
@@ -56,7 +56,7 @@ my_file = client.files.create(
 
 assistant = client.beta.assistants.create(
   instructions="당신은 리그오브레전드 전문가 입니다 첨부파일의 정보를 이용해 카운터 챔피언을 알려주세요.",
-  model="gpt-4o",
+  model="gpt-4-turbo-preview",
   tools=[{"type": "retrieval"}],
   file_ids=[my_file.id]
 )
