@@ -7,6 +7,8 @@ from openai import OpenAI
 api_key = st.text_input('Enter your OpenAI API key:', type='password')
 client = OpenAI(api_key=api_key)
 
+github_url = "https://github.com/hyunnn24/-/blob/main/counter_pick.txt"
+url = github_url.replace("/blob/", "/raw/")
 
 def download_and_save(url, filename):
   r = requests.get(url)
@@ -15,7 +17,6 @@ def download_and_save(url, filename):
   with open(filename,'w') as fo:
     fo.write(text)
 
-url = "https://github.com/hyunnn24/-/blob/main/counter_pick.txt"
 filename = 'data.txt'
 
 download_and_save(url, filename) 
