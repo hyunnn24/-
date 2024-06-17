@@ -36,15 +36,15 @@ if st.button('Get Counter Picks'):
 
         # OpenAI API 호출
         try:
-            response = openai.Completion.create(
-                engine="text-davinci-003",
-                prompt=prompt,
-                max_tokens=150
+            response = openai.chat.completions.create(
+                model="gpt-4o",
+                messages=prompt
+                max_tokens=1000
             )
 
             # API 응답 출력
             st.write(f"Counter picks for {enemy_champion1} and {enemy_champion2}:")
-            st.write(response.choices[0].text.strip())
+            st.write(response.choices[0].message.content)
         except openai.error.OpenAIError as e:
             st.error(f"OpenAI API error: {e}")
     else:
