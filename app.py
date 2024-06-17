@@ -30,7 +30,7 @@ def call_openai_api(query, context, api_key):
         ]
     
     response = openai.chat.completions.create(
-        model="gpt-3-turbo",
+        model="gpt-4o",
         messages=messages,
         max_tokens=1000
     )
