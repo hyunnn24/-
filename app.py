@@ -20,12 +20,12 @@ def call_openai_api(query, context, api_key):
     openai.api_key = api_key
     if context:
         messages = [
-            {"role": "system", "content": "문서를보고 입력 챔피언의 카운터알려줘 ."},
+            {"role": "system", "content": "문서를 기반으로 입력 챔피언의 카운터알려줘 ."},
             {"role": "user", "content": f"Context: {context}\n\nQuery: {query}"}
         ]
     else:
         messages = [
-            {"role": "system", "content": "문서를보고 입력 챔피언의 카운터알려줘 ."},
+            {"role": "system", "content": "문서를 기반으로 입력 챔피언의 카운터알려줘 ."},
             {"role": "user", "content": f"Query: {query}"}
         ]
     
