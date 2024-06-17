@@ -47,7 +47,7 @@ download_and_save(url, filename)
 with open(filename) as fi:
   text = fi.read()
 
-st.write(text) #TEST 
+#st.write(text) #TEST 
 
 my_file = client.files.create(
     file = open(filename,'rb'),
@@ -68,7 +68,7 @@ if enemy_champion1 and enemy_champion2 and api_key:
         {
         "role": "user",
         "content": query,
-        #"file_ids": [my_file.id]
+        "file_ids": [my_file.id]
         }
     ]
     )
