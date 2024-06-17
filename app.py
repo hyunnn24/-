@@ -72,7 +72,7 @@ if enemy_champion1 and enemy_champion2 and key:
             # Attach the new file to the message.
             "attachments": [
                 { "file_id": my_file.id, "tools": [{"type": "retrieval"}] }
-            ],
+                ],
             }
         ]
     )
