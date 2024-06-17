@@ -75,4 +75,4 @@ if enemy_champion1 and enemy_champion2 and api_key:
     run_and_wait(client, assistant, thread)
 
     for msg in thread_messages.data:
-    st.write(f"{msg.role}: {msg.content[0].text.value}")
+        st.write(f"{msg.role}: {msg.content[0].text.value}")
