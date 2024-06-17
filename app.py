@@ -60,19 +60,19 @@ assistant = client.beta.assistants.create(
   tools=[{"type": "retrieval"}],
   file_ids=[my_file.id]
 )
+if enemy_champion1 and enemy_champion2 and api_key:
+    query = f"{enemy_champion1}, {enemy_champion2}"
 
-query = f"{enemy_champion1}, {enemy_champion2}"
+    thread = client.beta.threads.create(
+    messages=[
+        {
+        "role": "user",
+        "content": query,
+        #"file_ids": [my_file.id]
+        }
+    ]
+    )
+    run_and_wait(client, assistant, thread)
 
-thread = client.beta.threads.create(
-  messages=[
-    {
-      "role": "user",
-      "content": query,
-      #"file_ids": [my_file.id]
-    }
-  ]
-)
-run_and_wait(client, assistant, thread)
-
-for msg in thread_messages.data:
-  st.write(f"{msg.role}: {msg.content[0].text.value}")
+    for msg in thread_messages.data:
+    st.write(f"{msg.role}: {msg.content[0].text.value}")
