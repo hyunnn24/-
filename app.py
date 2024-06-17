@@ -55,10 +55,10 @@ my_file = client.files.create(
 )
 
 assistant = client.beta.assistants.create(
-    instructions="당신은 리그오브레전드 전문가 입니다 첨부파일의 정보를 이용해 카운터 챔피언을 알려주세요.",
-    model="gpt-4-turbo-preview",
-    tools=[{"type": "retrieval"}],
-    file_ids=[my_file.id]
+  name="Financial Analyst Assistant",
+  instructions="you are an expert of league of legends counter pick.",
+  model="gpt-4o",
+  tools=[{"type": "file_search"}],
 )
 
 if enemy_champion1 and enemy_champion2 and key:
