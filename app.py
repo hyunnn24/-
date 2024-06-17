@@ -27,7 +27,8 @@ github_url = "https://github.com/hyunnn24/-/blob/main/counter_pick.txt"
 try:
     # 텍스트 가져오기
     text = get_text_from_github(github_url)
-
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching data: {e}")
 # OpenAI API 호출 함수
 def call_openai_api(query, context, api_key):
     openai.api_key = api_key
